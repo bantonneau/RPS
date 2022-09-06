@@ -15,16 +15,22 @@
         <li>2 for Paper</li>
         <li>3 for Scissors</li>
     </ul>
+
+
     <script>
 
-        if ((input === 1 && cpuinput === 3) || (input === 2 && cpuinput === 1) || (input === 3 && cpuinput === 2)) {
-            return "you win!"
-        } else if ((input === 1 && cpuinput === 2) || (input === 2 && cpuinput === 3) || (input === 3 && cpuinput === 1)) {
-            return "you lose!"
-        } else if ((input === 1 && cpuinput === 1) || (input === 2 && cpuinput === 2) || (input === 3 && cpuinput === 3)) {
-            return "you tied!"
-        }
+    function rps() {
+        let input = parseInt(prompt("Rock, Paper, or Scissors?"))
+        let cpuinput = getRandomInt(3)
 
+        if ((input === 1 && cpuinput === 2) || (input === 2 && cpuinput === 0) || (input === 3 && cpuinput === 1)) {
+            alert("you win!");
+        } else if ((input === 1 && cpuinput === 1) || (input === 2 && cpuinput === 2) || (input === 3 && cpuinput === 0)) {
+            alert("you lose!");
+        } else if ((input === 1 && cpuinput === 0) || (input === 2 && cpuinput === 1) || (input === 3 && cpuinput === 2)) {
+            alert("you tied!");
+        }
+    }
 
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
