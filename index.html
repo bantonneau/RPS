@@ -16,52 +16,13 @@
         <li>3 for Scissors</li>
     </ul>
     <script>
-        let win = "You Win!"
-        let lose = "You Lose!"
-        let tie = "You Tied!"
-        let invalid = "Please input a valid response!"
 
-        function rps(input) {
-            cpuSelection = getRandomInt(3)
-            if (input === 1) {
-                if (cpuSelection === 1) {
-                    return tie;
-                } else {
-                    if (cpuSelection === 2) {
-                        return lose;
-                    } else {
-                        return win;
-                    }
-                }
-            } else {
-            if (input === 2) {
-                if (cpuSelection === 1) {
-                    return win;
-                } else {
-                    if (cpuSelection === 2) {
-                        return tie;
-                    } else {
-                        return lose;
-                    }
-                }
-            } else {
-            if (input === 3) {
-                if (cpuSelection === 1) {
-                    return lose;
-                } else {
-                    if (cpuSelection === 2) {
-                        return win;
-                    } else {
-                        return tie;
-                    }
-                }
-            } else {
-            if (input >= 4) {
-                return invalid;
-                }
-             }
-          }
-        }
+        if ((input === 1 && cpuinput === 3) || (input === 2 && cpuinput === 1) || (input === 3 && cpuinput === 2)) {
+            return "you win!"
+        } else if ((input === 1 && cpuinput === 2) || (input === 2 && cpuinput === 3) || (input === 3 && cpuinput === 1)) {
+            return "you lose!"
+        } else if ((input === 1 && cpuinput === 1) || (input === 2 && cpuinput === 2) || (input === 3 && cpuinput === 3)) {
+            return "you tied!"
         }
 
 
