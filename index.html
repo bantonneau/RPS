@@ -13,23 +13,26 @@
 
 
     <script>
+//Global win tracking variables
 let playerwins = 0;
 let cpuwins= 0;
    
+//For loop for win tracking and determiing game end
     function startgame() {
         for(let i = 0; i < 10; i++) {
             rps()
             if (playerwins === 5) {
-                alert("you won the game")
+                alert("You won the game!")
                 break;
             }
             if (cpuwins === 5) {
-                alert("you lost the game")
+                alert("You lost the game!")
                 break;
             }
         }
     } 
 
+//Case insensitive input and conversion to integer for logic
     function rps() {
         let input = prompt("Rock, Paper, or Scissors?");
         let cpuinput = getRandomInt(3);
@@ -56,17 +59,17 @@ let cpuwins= 0;
 
 
 
-
+//Game logic
         if ((input === 0 && cpuinput === 2) 
          || (input === 1 && cpuinput === 0) 
          || (input === 2 && cpuinput === 1)) {
-            alert("You win! " + capitalizeFirstLetter(playerchoice) + " beats " + cpuchoice);
+            alert("You win the round! " + capitalizeFirstLetter(playerchoice) + " beats " + cpuchoice);
             playerwins++;
         }
         else if ((input === 0 && cpuinput === 1) 
          || (input === 1 && cpuinput === 2) 
          || (input === 2 && cpuinput === 0)) {
-            alert("You lose! " + capitalizeFirstLetter(cpuchoice) + " beats " + playerchoice);
+            alert("You lose the round. " + capitalizeFirstLetter(cpuchoice) + " beats " + playerchoice);
             cpuwins++;
         }
         else if (input === cpuinput) {
@@ -77,10 +80,13 @@ let cpuwins= 0;
     
     }
 
+
+//Cpuinput brain
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }   
 
+//Capitalization for dynamic feedback
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
