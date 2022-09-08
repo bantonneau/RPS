@@ -18,16 +18,32 @@
 
 
     <script>
+let playerwins = 0;
+let cpuwins= 0;
+   
+   function startgame() {
+        for(let i = 0; i < 10; i++) {
+            rps()
+            if (playerwins === 5) {
+                alert("you won the game")
+                break;
+            }
+            if (cpuwins === 5) {
+                alert("you lost the game")
+                break;
+            }
+        }
+    } 
 
     function rps() {
         let input = prompt("Rock, Paper, or Scissors?");
         let cpuinput = getRandomInt(3);
         let cpuchoice = "";
-            if (cpuinput = 0) {
+            if (cpuinput === 0) {
                 cpuchoice = "rock";
-            } else if (cpuinput = 1) {
+            } else if (cpuinput === 1) {
                 cpuchoice = "paper";
-            } else if (cpuinput = 2) {
+            } else if (cpuinput === 2) {
                 cpuchoice = "scissors";
             }
         let playerchoice = input.toLowerCase()
@@ -44,22 +60,34 @@
             }
 
 
+
+
         if ((input === 1 && cpuinput === 2) || (input === 2 && cpuinput === 0) || (input === 3 && cpuinput === 1)) {
             alert("You win! " + capitalizeFirstLetter(playerchoice) + " beats " + cpuchoice);
-        } else if ((input === 1 && cpuinput === 1) || (input === 2 && cpuinput === 2) || (input === 3 && cpuinput === 0)) {
-            alert("You lose! " + capitalizeFirstLetter(cpuchoice) + " beats " + playerchoice);
-        } else if ((input === 1 && cpuinput === 0) || (input === 2 && cpuinput === 1) || (input === 3 && cpuinput === 2)) {
-            alert("You tied! " + capitalizeFirstLetter(playerchoice) + " and " + cpuchoice + " are friends!");
+            playerwins++;
         }
+        else if ((input === 1 && cpuinput === 1) || (input === 2 && cpuinput === 2) || (input === 3 && cpuinput === 0)) {
+            alert("You lose! " + capitalizeFirstLetter(cpuchoice) + " beats " + playerchoice);
+            cpuwins++;
+        }
+        else if ((input === 1 && cpuinput === 0) || (input === 2 && cpuinput === 1) || (input === 3 && cpuinput === 2)) {
+            alert("You tied! " + capitalizeFirstLetter(playerchoice) + " and " + cpuchoice + " are friends!");
+            rps();
+        }
+
+    
     }
 
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }   
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}   
 
-        function capitalizeFirstLetter(string) {
+function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+
     </script>
 </body>
 </html>
