@@ -14,18 +14,18 @@
 
     <script>
 //Global win tracking variables
-let playerwins = 0;
-let cpuwins= 0;
+let playerWins = 0;
+let cpuWins= 0;
    
 //For loop for win tracking and determiing game end
     function startgame() {
         for(let i = 0; i < 10; i++) {
             rps()
-            if (playerwins === 5) {
+            if (playerWins === 5) {
                 alert("You won the game!")
                 break;
             }
-            if (cpuwins === 5) {
+            if (cpuWins === 5) {
                 alert("You lost the game!")
                 break;
             }
@@ -35,16 +35,16 @@ let cpuwins= 0;
 //Case insensitive input and conversion to integer for logic
     function rps() {
         let input = prompt("Rock, Paper, or Scissors?");
-        let cpuinput = getRandomInt(3);
-        let cpuchoice = "";
-            if (cpuinput === 0) {
-                cpuchoice = "rock";
-            } else if (cpuinput === 1) {
-                cpuchoice = "paper";
-            } else if (cpuinput === 2) {
-                cpuchoice = "scissors";
+        let cpuInput = getRandomInt(3);
+        let cpuChoice = "";
+            if (cpuInput === 0) {
+                cpuChoice = "rock";
+            } else if (cpuInput === 1) {
+                cpuChoice = "paper";
+            } else if (cpuInput === 2) {
+                cpuChoice = "scissors";
             }
-        let playerchoice = input.toLowerCase()
+        let playerChoice = input.toLowerCase()
         input = input.toLowerCase()
             if (input === "rock") {
                 input = 0;
@@ -60,20 +60,20 @@ let cpuwins= 0;
 
 
 //Game logic
-        if ((input === 0 && cpuinput === 2) 
-         || (input === 1 && cpuinput === 0) 
-         || (input === 2 && cpuinput === 1)) {
-            alert("You win the round! " + capitalizeFirstLetter(playerchoice) + " beats " + cpuchoice);
-            playerwins++;
+        if ((input === 0 && cpuInput === 2) 
+         || (input === 1 && cpuInput === 0) 
+         || (input === 2 && cpuInput === 1)) {
+            alert("You win the round! " + capitalizeFirstLetter(playerChoice) + " beats " + cpuChoice + ".");
+            playerWins++;
         }
-        else if ((input === 0 && cpuinput === 1) 
-         || (input === 1 && cpuinput === 2) 
-         || (input === 2 && cpuinput === 0)) {
-            alert("You lose the round. " + capitalizeFirstLetter(cpuchoice) + " beats " + playerchoice);
-            cpuwins++;
+        else if ((input === 0 && cpuInput === 1) 
+         || (input === 1 && cpuInput === 2) 
+         || (input === 2 && cpuInput === 0)) {
+            alert("You lose the round. " + capitalizeFirstLetter(cpuChoice) + " beats " + playerChoice + ".");
+            cpuWins++;
         }
-        else if (input === cpuinput) {
-            alert("You tied! " + capitalizeFirstLetter(playerchoice) + " and " + cpuchoice + " are friends!");
+        else if (input === cpuInput) {
+            alert("You tied! " + capitalizeFirstLetter(playerChoice) + " and " + cpuChoice + " are friends!");
             rps();
         }
 
